@@ -1,0 +1,56 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class UC8 {
+
+    public static void main(String[] args) {
+
+        // Map to store character patterns
+        Map<Character, String[]> patternMap = new HashMap<>();
+
+        patternMap.put('O', new String[]{
+                " ***** ",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                " ***** "
+        });
+
+        patternMap.put('P', new String[]{
+                " ***** ",
+                "*     *",
+                "*     *",
+                " ***** ",
+                "*      ",
+                "*      ",
+                "*      "
+        });
+
+        patternMap.put('S', new String[]{
+                " ***** ",
+                "*      ",
+                "*      ",
+                " ***** ",
+                "      *",
+                "      *",
+                " ***** "
+        });
+
+        // Word to display
+        String word = "OOPS";
+
+        // Print banner
+        for (int row = 0; row < 7; row++) {
+            StringBuilder line = new StringBuilder();
+
+            for (char c : word.toCharArray()) {
+                String[] pattern = patternMap.get(c);
+                line.append(pattern[row]).append("   ");
+            }
+
+            System.out.println(line);
+        }
+    }
+}
